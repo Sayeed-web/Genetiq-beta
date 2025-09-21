@@ -11,8 +11,10 @@ import { ConcernsWidget } from "@/Features/Dashboard/ConcernsWidget/ConcernsWidg
 import { SystemDetailWidget } from "@/Features/Dashboard/SystemDetailWidget/SystemDetailWidget";
 import { useSelector } from "react-redux";
 import { RootState } from "@/App/Redux/store";
+import { useTheme } from "../../Features/Structural/NavBar/Components/Settings/ThemeSwitch/Hooks/useThemeContext.tsx";
 
 const Dashboard = () => {
+	  const { theme, toggleTheme } = useTheme();
 	const [isNotFirstAnimation, setIsNotFirstAnimation] = useState(false);
 	const selectedCategory = useSelector(
 		(state: RootState) => state.category.selectedCategory,
@@ -33,7 +35,8 @@ const Dashboard = () => {
 	};
 
 	return (
-		<div className={styles["Dashboard-layout"]}>
+		<div     className={styles["Dashboard-layout"]}
+      style={{ backgroundColor: theme === "light" ? "#ffffff" : "#e9f1f6ff" }}>
 			<NavBar />
 			<div className={styles["Dashboard-select"]}></div>
 			<CameraProvider>

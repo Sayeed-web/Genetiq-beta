@@ -4,6 +4,7 @@ import Question from "@assets/ConcernsWidget/Question.svg?react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setCategory } from "@/App/Redux/categorySlice";
+import { useTranslation } from "../../../../Structural/NavBar/Components/Settings/LanguageSwitch/Hooks/useChangeLanguage.tsx";
 
 interface ConcernsCardProps {
 	concern: Concern;
@@ -16,6 +17,7 @@ export const ConcernsCard: React.FC<ConcernsCardProps> = ({
 }) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
+	 const { t } = useTranslation();
 
 	const handleClick = (concernName: string) => {
 		dispatch(setCategory("cardiovascular"));
@@ -66,7 +68,7 @@ export const ConcernsCard: React.FC<ConcernsCardProps> = ({
 							{concern.factors[0]}
 						</span>
 						{concern.factors.length > 1 && (
-							<span> level and other {concern.factors.length - 1} factors</span>
+							<span>  {t("level")} {concern.factors.length - 1} {t("andOtherFactors")}</span>
 						)}
 					</>
 				</div>

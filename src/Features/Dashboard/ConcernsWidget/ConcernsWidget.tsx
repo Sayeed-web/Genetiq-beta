@@ -2,13 +2,14 @@ import { useState } from "react";
 import styles from "./ConcernsWidget.module.scss";
 import Chevron from "@assets/ConcernWidget/Chevron.svg?react";
 import Slope from "@assets/ConcernsWidget/Slope.svg?react";
-import { concernsMockData } from "./helpers/concernsMockData";
 import { detailedSystemConcerns } from "./helpers/detailedSystemConcerns";
 import { ConcernsCard } from "./Components/ConcernsCard/ConcernsCard";
 import { DetailsCard } from "./Components/DetailsCard/DetailsCard";
 import { ReasonsTable } from "./Components/ReasonsTable/ReasonsTable";
 import { SymptomsList } from "./Components/SymptomsList/SymptomsList";
 import { PlanWidget } from "../PlanWidget/PlanWidget";
+import { useConcerns } from "./helpers/Hooks/useConcernFetcher.ts";
+import { useTranslation } from "../../Structural/NavBar/Components/Settings/LanguageSwitch/Hooks/useChangeLanguage.tsx";
 
 interface ConcernsWidgetProps {
 	category: string;
@@ -17,10 +18,10 @@ interface ConcernsWidgetProps {
 export const ConcernsWidget: React.FC<ConcernsWidgetProps> = ({ category }) => {
 	const [isShowMore, setIsShowMore] = useState(false);
 	const [detailIndex, setDetailIndex] = useState(1);
+	const { t } = useTranslation();
+	const concerns = useConcerns();
 
-	const concernsToShow = isShowMore
-		? concernsMockData
-		: concernsMockData.slice(0, 3);
+  const concernsToShow = isShowMore ? concerns : concerns.slice(0, 3);
 
 	const selectedSystem = detailedSystemConcerns[0];
 	const reasons = selectedSystem.details[detailIndex - 1]?.reasons ?? [];
@@ -40,7 +41,7 @@ export const ConcernsWidget: React.FC<ConcernsWidgetProps> = ({ category }) => {
 			<div className={styles["ConcernWidget-head"]}>
 				<div className={styles["ConcernWidget-tab-container"]}>
 					<div className={styles["ConcernWidget-tab"]}>
-						Key Areas of Concern
+						 {t("sectionTitle")}
 					</div>
 					<Slope className={styles["ConcernWidget-slope"]} />
 				</div>
@@ -50,7 +51,7 @@ export const ConcernsWidget: React.FC<ConcernsWidgetProps> = ({ category }) => {
 					onClick={() => handleShowMore()}
 				>
 					<p className={styles["ConcernWidget-more-text"]}>
-						{isShowMore ? "Show Less" : "Show all"}
+						{isShowMore ?  t("showLess") :t("showAll")}
 					</p>
 					<div className={styles["ConcernWidget-chevron-container"]}>
 						<Chevron

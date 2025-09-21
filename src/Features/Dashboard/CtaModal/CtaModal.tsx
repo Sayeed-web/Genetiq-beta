@@ -5,9 +5,11 @@ import Cart from "@assets/CtaModal/Cart.svg?react";
 import Shape from "@assets/CtaModal/Shape.svg?react";
 import ChevronHollow from "@assets/CtaModal/ChevronHollow.svg?react";
 import { useState } from "react";
+import { useTranslation } from "../../Structural/NavBar/Components/Settings/LanguageSwitch/Hooks/useChangeLanguage.tsx";
 
 const CtaModal = () => {
 	const [isClosed, setIsClosed] = useState(false);
+	const { t } = useTranslation();
 
 	return ReactDOM.createPortal(
 		<div
@@ -17,8 +19,8 @@ const CtaModal = () => {
 		>
 			<div className={styles["CtaModal-head"]}>
 				<div className={styles["CtaModal-head-text"]}>
-					<div className={styles["CtaModal-number"]}>16</div>
-					<div className={styles["CtaModal-title"]}>New insights</div>
+					<div className={styles["CtaModal-number"]}>{t("newInsightsNumber")}</div>
+					<div className={styles["CtaModal-title"]}>{t("newInsightsTitle")}</div>
 				</div>
 				<div
 					className={`${styles["CtaModal-cross-container"]} ${
@@ -31,12 +33,11 @@ const CtaModal = () => {
 			</div>
 			<div className={styles["CtaModal-body"]}>
 				<p className={styles["CtaModal-description"]}>
-					Discover new health insights to better understand and enhance your
-					wellness.
+					 {t("newInsightsDescription")}
 				</p>
 			</div>
 			<button className={styles["CtaModal-button"]}>
-				<p className={styles["CtaModal-button-text"]}>Order DNA Test</p>
+				<p className={styles["CtaModal-button-text"]}>{t("orderDNATestButton")}</p>
 				<div className={styles["CtaModal-cart-container"]}>
 					<Cart />
 				</div>

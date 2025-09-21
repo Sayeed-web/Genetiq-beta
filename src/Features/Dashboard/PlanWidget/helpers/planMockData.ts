@@ -15,12 +15,7 @@ import scale from "@assets/PlanWidget/FollowUpCare/scale.svg";
 import heart from "@assets/ConcernsWidget/Heart.svg";
 import diab from "@assets/ConcernsWidget/Diab.svg";
 
-export type PlanSection = {
-	title: string;
-	cta?: Supplements;
-	type?: string;
-	data: PlanItem[];
-};
+
 
 export type Supplements = {
 	title: string;
@@ -35,223 +30,206 @@ export type Supplements = {
 	}[];
 };
 
+
 export type PlanItem = {
-	name: string;
-	description: string;
-	group?: string;
-	dosage?: string;
-	frequency?: string;
-	count?: number;
-	link?: string;
-	icon: string;
+  name: Record<"en" | "fr", string>;
+  description: Record<"en" | "fr", string>;
+  group?: string;
+  dosage?: string;
+  frequency?: string;
+  count?: number;
+  link?: string;
+  icon: string;
+};
+
+export type PlanSection = {
+  title: Record<"en" | "fr", string>;
+  cta?: {
+    title: Record<"en" | "fr", string>;
+    description: Record<"en" | "fr", string>;
+    types: {
+      name: Record<"en" | "fr", string>;
+      icon: string;
+      supplements: { amount: number; supplement: string }[];
+    }[];
+  };
+  type?: string;
+  data: PlanItem[];
 };
 
 export const planMockData: PlanSection[] = [
-	{
-		title: "Action Plan",
-		type: "aggregated",
-		data: [],
-	},
-	{
-		title: "Follow-up Care",
-		data: [
-			{
-				name: "Take Genetic Health Risk Tests",
-				description: "Improved lung function",
-				icon: gene,
-			},
-			{
-				name: "Monitoring blood pressure 3 times a week",
-				description: "Early detection of hypertension",
-				icon: scale,
-			},
-			{
-				name: "Adopt a low-glycemic index and heart healthy diets",
-				description: "Helps widen blood vessels +6",
-				icon: microscope,
-			},
-			{
-				name: "Keep in range your Body Mass Index",
-				description: "Lowers your blood pressure +3",
-				icon: scale,
-			},
-			{
-				name: "Take a cholesterol laboratory test",
-				description: "Assessment of insulin resistance +7",
-				icon: microscope,
-			},
-			{
-				name: "Consider taking your avg. blood sugar (glucose) level",
-				description: "Early detection of diabetes or prediabetes +5",
-				icon: microscope,
-			},
-			{
-				name: "Monitoring blood pressure 1 time a day",
-				description: "Detect respiratory or cardiovascular issues +5",
-				icon: scale,
-			},
-		],
-	},
-	{
-		title: "Supplements",
-		cta: {
-			title: "Your Personal Supplements Mix",
-			description:
-				"This combination helps reduce inflammation, regulate blood pressure, and improve heart function, aiding in the prevention of diseases such as hypertension, atrial fibrillation, and coronary artery disease.",
-			types: [
-				{
-					name: "Cardiovascular",
-					icon: heart,
-					supplements: [
-						{
-							amount: 4,
-							supplement: "Vitamins",
-						},
-						{
-							amount: 3,
-							supplement: "Minerals",
-						},
-						{
-							amount: 1,
-							supplement: "amino acid",
-						},
-						{
-							amount: 2,
-							supplement: "antixidants",
-						},
-					],
-				},
-				{
-					name: "Digestive",
-					icon: diab,
-					supplements: [
-						{
-							amount: 3,
-							supplement: "Vitamins",
-						},
-						{
-							amount: 3,
-							supplement: "amino acid",
-						},
-						{
-							amount: 3,
-							supplement: "Minerals",
-						},
-						{
-							amount: 1,
-							supplement: "antixidants",
-						},
-					],
-				},
-				{
-					name: "My personal formula",
-					icon: heart,
-					supplements: [
-						{
-							amount: 7,
-							supplement: "Vitamins",
-						},
-						{
-							amount: 6,
-							supplement: "Minerals",
-						},
-						{
-							amount: 4,
-							supplement: "amino acid",
-						},
-						{
-							amount: 3,
-							supplement: "antixidants",
-						},
-					],
-				},
-			],
-		},
-		type: "grouped",
-		data: [
-			{
-				name: "Beetroot powder / titrate supplements",
-				description: "Increases nitric oxide levels",
-				dosage: "1 pill",
-				frequency: "Once",
-				group: "peptides",
-				icon: beetroot,
-			},
-			{
-				name: "Take turmeric extract to reduce inflammation (CPR)",
-				description: "Supports vascular health",
-				dosage: "1 pill",
-				frequency: "Once",
-				group: "peptides",
-				icon: tumeric,
-			},
-			{
-				name: "Take Omega-3 Fatty Acids",
-				description: "Helps widen blood vessels +8",
-				dosage: "1 pill",
-				frequency: "Once",
-				group: "other",
-				icon: omega,
-			},
-			{
-				name: "Coenzyme Q10 (CoQ10)",
-				description: "Include Coenzyme Q10 (CoQ10)",
-				dosage: "1 pill",
-				frequency: "Once",
-				group: "other",
-				icon: coenzyme,
-			},
-			{
-				name: "Add Ashwagandha (Withania somnifera)",
-				description: "Supports vascular health",
-				dosage: "1 pill",
-				frequency: "Once",
-				group: "other",
-				icon: ashwagandha,
-			},
-		],
-	},
-	{
-		title: "Lifestyle",
-		data: [
-			{
-				name: "Quit smoking & limit alcohol",
-				description: "Improved lung function +5",
-				icon: quitSmoking,
-			},
-			{
-				name: "Train in zone 2 & monitor regularly VO2 max",
-				description: "Supports vascular health +4",
-				icon: train,
-			},
-			{
-				name: "Adopt a low-glycemic index and heart healthy diets",
-				description: "Helps widen blood vessels +6",
-				icon: apple,
-			},
-			{
-				name: "Manage your stress",
-				description: "Helps widen blood vessels +8",
-				icon: quitSmoking,
-			},
-			{
-				name: "Fill your plate with fruits and veggies",
-				description: "Lowers your blood pressure +3",
-				icon: apple,
-			},
-			{
-				name: "Reduce sugar and salt",
-				description: "Improved lung function +5",
-				icon: apple,
-			},
-			{
-				name: "Practice flexibility and balance",
-				description: "Enhances joint health +8",
-				icon: train,
-			},
-		],
-	},
+  {
+    title: { en: "Action Plan", fr: "Plan d'action" },
+    type: "aggregated",
+    data: [],
+  },
+  {
+    title: { en: "Follow-up Care", fr: "Suivi médical" },
+    data: [
+      {
+        name: { en: "Take Genetic Health Risk Tests", fr: "Faire des tests de risque génétique" },
+        description: { en: "Improved lung function", fr: "Amélioration de la fonction pulmonaire" },
+        icon: gene,
+      },
+      {
+        name: { en: "Monitoring blood pressure 3 times a week", fr: "Surveillance de la pression artérielle 3 fois par semaine" },
+        description: { en: "Early detection of hypertension", fr: "Détection précoce de l'hypertension" },
+        icon: scale,
+      },
+      {
+        name: { en: "Adopt a low-glycemic index and heart healthy diets", fr: "Adopter un régime à faible indice glycémique et sain pour le cœur" },
+        description: { en: "Helps widen blood vessels +6", fr: "Aide à dilater les vaisseaux sanguins +6" },
+        icon: microscope,
+      },
+      {
+        name: { en: "Keep in range your Body Mass Index", fr: "Maintenir votre indice de masse corporelle" },
+        description: { en: "Lowers your blood pressure +3", fr: "Réduit votre pression artérielle +3" },
+        icon: scale,
+      },
+      {
+        name: { en: "Take a cholesterol laboratory test", fr: "Faire un test de cholestérol en laboratoire" },
+        description: { en: "Assessment of insulin resistance +7", fr: "Évaluation de la résistance à l'insuline +7" },
+        icon: microscope,
+      },
+      {
+        name: { en: "Consider taking your avg. blood sugar (glucose) level", fr: "Envisager de mesurer votre glycémie moyenne" },
+        description: { en: "Early detection of diabetes or prediabetes +5", fr: "Détection précoce du diabète ou prédiabète +5" },
+        icon: microscope,
+      },
+      {
+        name: { en: "Monitoring blood pressure 1 time a day", fr: "Surveillance de la pression artérielle une fois par jour" },
+        description: { en: "Detect respiratory or cardiovascular issues +5", fr: "Détecte les problèmes respiratoires ou cardiovasculaires +5" },
+        icon: scale,
+      },
+    ],
+  },
+  {
+    title: { en: "Supplements", fr: "Suppléments" },
+    cta: {
+      title: { en: "Your Personal Supplements Mix", fr: "Votre mélange personnel de suppléments" },
+      description: {
+        en: "This combination helps reduce inflammation, regulate blood pressure, and improve heart function, aiding in the prevention of diseases such as hypertension, atrial fibrillation, and coronary artery disease.",
+        fr: "Cette combinaison aide à réduire l'inflammation, réguler la pression artérielle et améliorer la fonction cardiaque, contribuant à la prévention des maladies telles que l'hypertension, la fibrillation auriculaire et la coronaropathie.",
+      },
+      types: [
+        {
+          name: { en: "Cardiovascular", fr: "Cardiovasculaire" },
+          icon: heart,
+          supplements: [
+            { amount: 4, supplement: "Vitamins" },
+            { amount: 3, supplement: "Minerals" },
+            { amount: 1, supplement: "Amino acid" },
+            { amount: 2, supplement: "Antioxidants" },
+          ],
+        },
+        {
+          name: { en: "Digestive", fr: "Digestif" },
+          icon: diab,
+          supplements: [
+            { amount: 3, supplement: "Vitamins" },
+            { amount: 3, supplement: "Amino acid" },
+            { amount: 3, supplement: "Minerals" },
+            { amount: 1, supplement: "Antioxidants" },
+          ],
+        },
+        {
+          name: { en: "My personal formula", fr: "Ma formule personnelle" },
+          icon: heart,
+          supplements: [
+            { amount: 7, supplement: "Vitamins" },
+            { amount: 6, supplement: "Minerals" },
+            { amount: 4, supplement: "Amino acid" },
+            { amount: 3, supplement: "Antioxidants" },
+          ],
+        },
+      ],
+    },
+    type: "grouped",
+    data: [
+      {
+        name: { en: "Beetroot powder / titrate supplements", fr: "Poudre de betterave / suppléments titrés" },
+        description: { en: "Increases nitric oxide levels", fr: "Augmente les niveaux d'oxyde nitrique" },
+        dosage: "1 pill",
+        frequency: "Once",
+        group: "peptides",
+        icon: beetroot,
+      },
+      {
+        name: { en: "Take turmeric extract to reduce inflammation (CPR)", fr: "Prendre de l'extrait de curcuma pour réduire l'inflammation (CPR)" },
+        description: { en: "Supports vascular health", fr: "Soutient la santé vasculaire" },
+        dosage: "1 pill",
+        frequency: "Once",
+        group: "peptides",
+        icon: tumeric,
+      },
+      {
+        name: { en: "Take Omega-3 Fatty Acids", fr: "Prendre des acides gras oméga-3" },
+        description: { en: "Helps widen blood vessels +8", fr: "Aide à dilater les vaisseaux sanguins +8" },
+        dosage: "1 pill",
+        frequency: "Once",
+        group: "other",
+        icon: omega,
+      },
+      {
+        name: { en: "Coenzyme Q10 (CoQ10)", fr: "Coenzyme Q10 (CoQ10)" },
+        description: { en: "Include Coenzyme Q10 (CoQ10)", fr: "Inclure le coenzyme Q10 (CoQ10)" },
+        dosage: "1 pill",
+        frequency: "Once",
+        group: "other",
+        icon: coenzyme,
+      },
+      {
+        name: { en: "Add Ashwagandha (Withania somnifera)", fr: "Ajouter Ashwagandha (Withania somnifera)" },
+        description: { en: "Supports vascular health", fr: "Soutient la santé vasculaire" },
+        dosage: "1 pill",
+        frequency: "Once",
+        group: "other",
+        icon: ashwagandha,
+      },
+    ],
+  },
+  {
+    title: { en: "Lifestyle", fr: "Mode de vie" },
+    data: [
+      {
+        name: { en: "Quit smoking & limit alcohol", fr: "Arrêter de fumer & limiter l'alcool" },
+        description: { en: "Improved lung function +5", fr: "Amélioration de la fonction pulmonaire +5" },
+        icon: quitSmoking,
+      },
+      {
+        name: { en: "Train in zone 2 & monitor regularly VO2 max", fr: "S'entraîner en zone 2 & surveiller régulièrement le VO2 max" },
+        description: { en: "Supports vascular health +4", fr: "Soutient la santé vasculaire +4" },
+        icon: train,
+      },
+      {
+        name: { en: "Adopt a low-glycemic index and heart healthy diets", fr: "Adopter un régime à faible indice glycémique et sain pour le cœur" },
+        description: { en: "Helps widen blood vessels +6", fr: "Aide à dilater les vaisseaux sanguins +6" },
+        icon: apple,
+      },
+      {
+        name: { en: "Manage your stress", fr: "Gérer votre stress" },
+        description: { en: "Helps widen blood vessels +8", fr: "Aide à dilater les vaisseaux sanguins +8" },
+        icon: quitSmoking,
+      },
+      {
+        name: { en: "Fill your plate with fruits and veggies", fr: "Remplissez votre assiette de fruits et légumes" },
+        description: { en: "Lowers your blood pressure +3", fr: "Réduit votre pression artérielle +3" },
+        icon: apple,
+      },
+      {
+        name: { en: "Reduce sugar and salt", fr: "Réduire le sucre et le sel" },
+        description: { en: "Improved lung function +5", fr: "Amélioration de la fonction pulmonaire +5" },
+        icon: apple,
+      },
+      {
+        name: { en: "Practice flexibility and balance", fr: "Pratiquer la flexibilité et l'équilibre" },
+        description: { en: "Enhances joint health +8", fr: "Améliore la santé des articulations +8" },
+        icon: train,
+      },
+    ],
+  },
 ];
+
 
 export const AtrialFibrillationPlanMockData: PlanSection[] = [
 	{

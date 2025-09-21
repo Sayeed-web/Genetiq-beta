@@ -1,0 +1,33 @@
+.lang-switch {
+  display: flex;
+  justify-content: center; // center horizontally
+  gap: 12px;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center; // center content
+    gap: 6px;
+    padding: 6px 14px; // wider
+    border-radius: 8px;
+    border: none;
+    background-color: #f0f2f5;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 14px;
+
+    .icon {
+      font-size: 18px; // bigger icons
+    }
+
+    &:hover {
+      background-color: #e0e4ff;
+    }
+
+    &.active {
+      background-color: #0077ff;
+      color: #fff;
+    }
+  }
+}

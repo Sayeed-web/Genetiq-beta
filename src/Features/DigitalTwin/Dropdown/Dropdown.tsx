@@ -1,15 +1,14 @@
 import { useState } from "react";
 import styles from "./Dropdown.module.scss";
+import { useTranslation } from "../../Structural/NavBar/Components/Settings/LanguageSwitch/Hooks/useChangeLanguage.tsx";
 
 interface DropdownOption {
 	label: string;
 	value: "total" | "cardio";
 }
 
-const options: DropdownOption[] = [
-	{ label: "Total Health", value: "total" },
-	{ label: "Cardiovascular", value: "cardio" },
-];
+
+
 
 interface DropdownProps {
 	value: "total" | "cardio";
@@ -25,6 +24,13 @@ interface DropdownProps {
 
 const Dropdown = ({ value, onChange, onModelChange }: DropdownProps) => {
 	const [isOpen, setIsOpen] = useState(false);
+	const { t } = useTranslation();
+
+	const options: DropdownOption[] = [
+	{ label: t("totalHealth"), value: "total" },
+	{ label: t("cardiovascular"), value: "cardio" },
+];
+	 
 
 	const selected =
 		options.find((option) => option.value === value) || options[0];

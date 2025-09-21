@@ -1,19 +1,117 @@
 .navbar-container {
-	display: flex;
-	justify-content: space-between;
-	padding: 10px 20px;
-	width: 100%; /* Stretch to full width of the container */
-	box-sizing: border-box; /* Ensure padding doesn't cause overflow */
-	align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+ 
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 
-	.logo-wrapper {
-		svg {
-			width: 150px;
-			height: 38px;
-		}
-	}
-	.actions-container {
-		display: flex;
-		gap: 8px;
-	}
+  .logo-wrapper {
+    svg {
+      width: 150px;
+      height: 38px;
+    }
+  }
+
+  .actions-container {
+    display: flex;
+    gap: 12px; // slightly larger gap for clarity
+    align-items: center;
+  }
+}
+
+// Settings dropdown list
+.settings-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .settings-icon {
+    font-size: 22px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #0077ff; // highlight color
+    }
+  }
+
+.settings-dropdown {
+  position: absolute;
+  top: 33px; // move slightly lower from icon (was 28px)
+  right: 0;
+  background-color: #fff;
+  border-radius: 10px; // slightly bigger radius
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px; // more padding for better spacing
+  display: flex;
+  flex-direction: column;
+  gap: 12px; // bigger gap between switches
+  z-index: 50;
+  min-width: 150px; // wider
+  align-items: center; // center all items horizontally
+}
+
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+
+    &:hover {
+      background-color: #f0f4ff;
+      transform: translateX(2px);
+    }
+
+    // If ThemeSwitch has icons, adjust size
+    .theme-switch-container {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      .icon {
+        width: 18px;
+        height: 18px;
+      }
+
+      span {
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+      }
+    }
+
+    // LanguageSwitch buttons styling
+    .lang-switch {
+      display: flex;
+      gap: 6px;
+
+      button {
+        padding: 4px 8px;
+        border-radius: 6px;
+        border: none;
+        font-size: 14px;
+        cursor: pointer;
+        background-color: #e5e7eb;
+        color: #333;
+        font-weight: 500;
+        transition: background-color 0.2s;
+
+        &.active-lang {
+          background-color: #0077ff;
+          color: #fff;
+        }
+
+        &:hover {
+          background-color: #d0d4ff;
+        }
+      }
+    }
+  }
 }
