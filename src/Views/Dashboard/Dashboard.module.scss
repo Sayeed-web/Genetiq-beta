@@ -7,6 +7,18 @@
 	overflow-y: hidden;
 }
 
+.Dashboard-select {
+	padding: 1rem 2rem;
+}
+
+.Dashboard-title {
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: #333;
+	margin: 0;
+	text-align: center;
+}
+
 .Dashboard-dt-container {
 	display: flex;
 	flex-direction: column;

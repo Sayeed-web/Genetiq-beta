@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import NavBar from "@/Features/Structural/NavBar/Navbar";
 import styles from "./Dashboard.module.scss";
 import { TrackerWidget } from "@/Features/Dashboard/TrackerWidget/TrackerWidget";
@@ -13,6 +14,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/App/Redux/store";
 
 const Dashboard = () => {
+	const { t } = useTranslation();
 	const [isNotFirstAnimation, setIsNotFirstAnimation] = useState(false);
 	const selectedCategory = useSelector(
 		(state: RootState) => state.category.selectedCategory,
@@ -35,7 +37,11 @@ const Dashboard = () => {
 	return (
 		<div className={styles["Dashboard-layout"]}>
 			<NavBar />
-			<div className={styles["Dashboard-select"]}></div>
+
+			// example: using translation hook for welcome text
+			<div className={styles["Dashboard-select"]}>
+				<h1 className={styles["Dashboard-title"]}>{t('dashboard.welcome')}</h1>
+			</div>
 			<CameraProvider>
 				<div className={styles["Dashboard-content"]}>
 					<div className={styles["Dashboard-dt-container"]}>

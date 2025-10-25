@@ -4,7 +4,9 @@ import styles from "./Navbar.module.scss";
 import NotificationHub from "./Components/NotificationsHub/NotificationsHub";
 import Profile from "./Components/Profile/Profile";
 import ManageData from "./Components/ManageData/ManageData";
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 
+/* added language switcher to navbar actions */
 const Navbar = () => {
 	return (
 		<div className={styles["navbar-container"]}>
@@ -13,6 +15,7 @@ const Navbar = () => {
 			</div>
 			<Navigation />
 			<div className={styles["actions-container"]}>
+				<LanguageSwitcher />
 				<ManageData />
 				<NotificationHub IsBadge={true} />
 				<Profile />
