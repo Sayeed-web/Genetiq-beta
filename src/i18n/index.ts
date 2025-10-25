@@ -4,6 +4,7 @@ import { initReactI18next } from 'react-i18next';
 
 // i18n config for EN/FA support
 // saves language preference in localStorage and applies RTL for Farsi
+// TODO: add more translations later if needed
 
 const resources = {
   en: {
@@ -48,6 +49,7 @@ const resources = {
   }
 };
 
+// quick fix: fallback to english if nothing in local storage
 const savedLanguage = localStorage.getItem('language') || 'en';
 
 i18n
