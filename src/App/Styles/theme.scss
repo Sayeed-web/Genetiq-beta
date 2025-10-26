@@ -1,0 +1,58 @@
+// css variables for light and dark themes
+// appled via data theme attribute on html element
+// theme vars Just light and dark for now simple setup 
+
+
+:root[data-theme='light'] {
+  --bg-color: #ffffff;
+  --text-color: rgba(0, 0, 0, 0.87);
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --secondary-bg: #f9f9f9;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --hover-bg: rgba(0, 0, 0, 0.274);
+  --input-bg: #ffffff;
+  --card-bg: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+  // no logo-color in light mode, let SVG use original brand colors
+ }
+
+
+
+:root[data-theme='dark'] {
+  --bg-color: #1a1a1a;
+  // brighter text for better readability in dark mode
+  --text-color: rgba(255, 255, 255, 0.92);
+  --text-secondary: rgba(255, 255, 255, 0.65);
+  --secondary-bg: #2a2a2a;
+  --border-color: rgba(255, 255, 255, 0.15);
+  --hover-bg: rgba(255, 255, 255, 0.08);
+  --input-bg: #2a2a2a;
+  --card-bg: #242424;
+  --shadow: rgba(0, 0, 0, 0.5);
+  // white logo for dark mode readability
+  // TODO: maybe tweak logo color later
+  --logo-color: #ffffff;
+
+}
+
+// apply theme colors to body and common elements
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+input {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+// cards and containers
+.card,
+.container {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+
+  
+}

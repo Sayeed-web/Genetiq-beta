@@ -12,6 +12,16 @@
 			height: 38px;
 		}
 	}
+
+    /* override logo color for dark theme visibility */
+
+	:global([data-theme='dark']) & .logo-wrapper {
+		color: var(--logo-color);
+
+		svg path {
+			fill: currentColor;
+		}
+	}
 	.actions-container {
 		display: flex;
 		gap: 8px;

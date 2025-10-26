@@ -38,7 +38,6 @@ const Dashboard = () => {
 		<div className={styles["Dashboard-layout"]}>
 			<NavBar />
 
-			// example: using translation hook for welcome text
 			<div className={styles["Dashboard-select"]}>
 				<h1 className={styles["Dashboard-title"]}>{t('dashboard.welcome')}</h1>
 			</div>

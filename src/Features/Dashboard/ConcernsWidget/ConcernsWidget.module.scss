@@ -12,16 +12,16 @@
 }
 
 .ConcernWidget-tab {
-	background-color: #ffffff;
 	border-top-left-radius: 8px;
 	padding: 6px 10px 3px 20px;
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 24px;
-	color: #0b101a;
+	// using theme vars for tab colors
+	color: var(--text-color);
 	position: relative;
 	overflow: hidden;
-	background-color: #e4ebf9;
+	background-color: var(--secondary-bg);
 }
 
 .ConcernWidget-tab-container {
@@ -79,7 +79,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
-	background-color: #e4ebf9;
+	background-color: var(--secondary-bg);
 	padding: 16px;
 	border-radius: 0px 8px 8px 8px;
 	overflow: hidden;

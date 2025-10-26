@@ -5,8 +5,9 @@
 	align-items: center;
 	cursor: pointer;
 	border-radius: 99px;
-	border: 1px solid rgba(95, 104, 119, 0.1);
-	background: rgba(231, 233, 236, 0.4);
+	// theme vars for border and bg
+	border: 1px solid var(--border-color);
+	background: var(--secondary-bg);
 
 	backdrop-filter: blur(1px);
 
@@ -15,6 +16,8 @@
 		font-size: 14px;
 		font-weight: 500;
 		margin: 0;
+		// TODO: maybe tweak colors later
+		color: var(--text-color);
 	}
 
 	.icon-button {
@@ -22,9 +25,16 @@
 		padding: 4px;
 		justify-content: center;
 		align-items: center;
-		// background-color: #6c75841f;
-		background: rgba(231, 233, 236, 0.1);
+		background: var(--hover-bg);
 		border: none;
 		margin-right: 6px;
+		// make svg adapt to theme
+		color: var(--text-color);
+
+		svg {
+			path {
+				fill: currentColor;
+			}
+		}
 	}
 }

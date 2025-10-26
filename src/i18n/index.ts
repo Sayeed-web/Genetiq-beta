@@ -2,9 +2,9 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 
-// i18n config for EN/FA support
-// saves language preference in localStorage and applies RTL for Farsi
-// TODO: add more translations later if needed
+// i18n config for english and farsi(persian) support + rtl
+// saves language preference in localStorage and applies rtl for Farsi(persian)
+// TODO: insert more translations later if need
 
 const resources = {
   en: {
@@ -17,6 +17,7 @@ const resources = {
         concerns: 'Health Concerns',
         systemDetail: 'System Details',
         riskAssessment: 'Risk Assessment'
+
       },
       common: {
         loading: 'Loading...',
@@ -25,6 +26,7 @@ const resources = {
         cancel: 'Cancel',
         close: 'Close'
       }
+
     }
   },
   fa: {
@@ -44,9 +46,9 @@ const resources = {
         save: 'ذخیره',
         cancel: 'لغو',
         close: 'بستن'
-      }
     }
-  }
+    }
+   }
 };
 
 // quick fix: fallback to english if nothing in local storage
@@ -66,12 +68,14 @@ i18n
     }
   });
 
+
 // save language preference when it change
 i18n.on('languageChanged', (lng) => {
   localStorage.setItem('language', lng);
   document.documentElement.dir = lng === 'fa' ? 'rtl' : 'ltr';
   document.documentElement.lang = lng;
 });
+
 
 // set initial direction and language
 document.documentElement.dir = savedLanguage === 'fa' ? 'rtl' : 'ltr';

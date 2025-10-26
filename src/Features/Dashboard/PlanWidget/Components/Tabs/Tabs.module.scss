@@ -3,10 +3,11 @@
 .Tabs-container {
 	display: flex;
 	flex-direction: row;
-	background-color: #e4ebf9;
+	// using theme vars for tabs background
+	background-color: var(--secondary-bg);
 
 	&-blue {
-		background-color: #ffffff;
+		background-color: var(--card-bg);
 
 		.active {
 			svg {
@@ -16,14 +17,14 @@
 			}
 
 			.Tabs-tab {
-				background: rgb(228, 235, 248);
+				background: var(--hover-bg);
 			}
 		}
 
 		.Tabs-tab-container {
 			&:last-child {
 				.Tabs-tab::after {
-					background-color: #ffffff;
+					background-color: var(--card-bg);
 				}
 			}
 		}
@@ -59,7 +60,7 @@
 			top: -1px;
 			right: 0;
 			rotate: (180deg);
-			background-color: #e4ebf9;
+			background-color: var(--secondary-bg);
 			position: absolute;
 			clip-path: path(
 				"M29.65 31.2362L14.5656 7.92407C11.3686 2.98327 5.88493 0 0 0V40H45.7592C39.2507 40 33.1858 36.7006 29.65 31.2362Z"
@@ -69,7 +70,7 @@
 
 	&:not(.active):hover {
 		.Tabs-tab {
-			background: rgb(223, 229, 248);
+			background: var(--hover-bg);
 		}
 
 		svg {
@@ -88,7 +89,7 @@
 	}
 
 	.Tabs-tab {
-		background: #ffffff;
+		background: var(--card-bg);
 	}
 }
 
@@ -101,10 +102,11 @@
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 24px;
-	color: #0b101a;
+	// theme var for text color
+	color: var(--text-color);
 	position: relative;
 	overflow: hidden;
-	background: #f5f7fc;
+	background: var(--secondary-bg);
 	transition: all 0.2s ease;
 
 	@include mixins.media_1536 {

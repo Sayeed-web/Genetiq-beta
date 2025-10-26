@@ -1,9 +1,10 @@
-/* styles for language switcher buttons in navbar */
-/* active stat = highlighted with blue background */
+/* basic styles for theme btns can tune later if need */
+/* active = highlight to show current theme */
 
-.languageSwitcher {
+.themeSwitcher {
   display: flex;
   gap: 4px;
+
   // using theme vars so it works in dark mode
   background: var(--hover-bg);
   border-radius: 8px;
@@ -13,20 +14,24 @@
  
 }
 
-.languageButton {
+.themeButton {
   padding: 8px 12px;
   border: none;
   border-radius: 6px;
   background: transparent;
-  // theme var for text color
+
+
+
+  // Use CSS custom properties for theme consistency
   color: var(--text-color);
   opacity: 0.7;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
   font-family: 'Inter', sans-serif;
   cursor: pointer;
   transition: all 0.2s ease;
   min-width: 32px;
+
 
   &:hover {
     background: var(--hover-bg);
@@ -39,8 +44,10 @@
     font-weight: 600;
   }
 
+
+
   &:focus {
     outline: none;
     box-shadow: 0 0 0 2px rgba(100, 108, 255, 0.5);
   }
-}
+  }

@@ -14,7 +14,8 @@
 .Dashboard-title {
 	font-size: 1.5rem;
 	font-weight: 600;
-	color: #333;
+	// using theme var so it works in dark mode
+	color: var(--text-color);
 	margin: 0;
 	text-align: center;
 }
@@ -85,7 +86,8 @@
 	}
 
 	&::-webkit-scrollbar-track {
-		background-color: #f0f0f0;
+		// TODO: tweak contrast later
+		background-color: var(--secondary-bg);
 		border-radius: 4px;
 	}
 

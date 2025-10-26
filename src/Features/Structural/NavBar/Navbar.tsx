@@ -5,8 +5,10 @@ import NotificationHub from "./Components/NotificationsHub/NotificationsHub";
 import Profile from "./Components/Profile/Profile";
 import ManageData from "./Components/ManageData/ManageData";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+import ThemeSwitcher from "../ThemeSwitcher";
 
-/* added language switcher to navbar actions */
+
+/* added lang switcher and theme switcher to nav actions */
 const Navbar = () => {
 	return (
 		<div className={styles["navbar-container"]}>
@@ -15,6 +17,7 @@ const Navbar = () => {
 			</div>
 			<Navigation />
 			<div className={styles["actions-container"]}>
+				<ThemeSwitcher />
 				<LanguageSwitcher />
 				<ManageData />
 				<NotificationHub IsBadge={true} />

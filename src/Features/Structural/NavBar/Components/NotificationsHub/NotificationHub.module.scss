@@ -7,13 +7,18 @@
 	align-items: center;
 
 	border-radius: 99px;
-	border: 1px solid rgba(95, 104, 119, 0.1);
-	background: rgba(255, 255, 255, 0.04);
-
+	// using theme vars
+	border: 1px solid var(--border-color);
+	background: var(--hover-bg);
 	backdrop-filter: blur(1px);
+	// make svg icon adapt to theme
+	color: var(--text-color);
 
-	background: rgba(255, 255, 255, 0.04);
-	backdrop-filter: blur(1px);
+	svg {
+		path {
+			fill: currentColor;
+		}
+	}
 
 	.badge {
 		border-radius: 100px;
@@ -23,6 +28,7 @@
 		width: 8px;
 		height: 8px;
 		background-color: #fe303b;
-		border: 1px solid #fff;
+		// TODO: maybe use theme var for badge border
+		border: 1px solid var(--bg-color);
 	}
 }

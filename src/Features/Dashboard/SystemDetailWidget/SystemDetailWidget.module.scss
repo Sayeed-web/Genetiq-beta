@@ -23,7 +23,8 @@
 	font-size: 24px;
 	line-height: 32px;
 	margin: 0;
-	color: #21262e;
+	// theme var for title
+	color: var(--text-color);
 }
 
 .SystemDetailWidget-report {
@@ -43,7 +44,8 @@
 	line-height: 20px;
 	margin: 0;
 	border: none;
-	background-color: white;
+	// not sure if best way but using theme var
+	background-color: var(--bg-color);
 
 	svg {
 		path {
@@ -69,7 +71,7 @@
 
 .SystemDetailWidget-body {
 	margin: 0;
-	color: #5f6877;
+	color: var(--text-secondary);
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 20px;

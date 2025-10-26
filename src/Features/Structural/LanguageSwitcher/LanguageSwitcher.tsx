@@ -2,15 +2,16 @@ import { useTranslation } from 'react-i18next';
 import styles from './LanguageSwitcher.module.scss';
 
 
-// toggle between en and farsi
+// toggle between en and farsi(persian lang)
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
 
-  // toggle between english and farsi
+  // toggle between english and farsi(persian lang)
   const handleLanguageChange = (language: string) => {
     i18n.changeLanguage(language);
   };
 
+  
 // btns for switch language
 // TODO: maybe add icons later instead of plain txt
   return (

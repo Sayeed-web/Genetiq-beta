@@ -67,7 +67,9 @@
 	font-weight: 400;
 	line-height: 14px;
 	text-align: left;
-	color: #5f6877;
+	// using theme var for better dark mode support
+	color: var(--text-color);
+	opacity: 0.7;
 	margin: auto;
 	text-wrap: nowrap;
 
@@ -81,7 +83,8 @@
 }
 
 .TrackerWidget-text-highlight {
-	color: #0b101a;
+	color: var(--text-color);
+	opacity: 1;
 }
 
 .TrackerWidget-progressbar {
